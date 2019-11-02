@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using PronPasswordGen.Util;
 
-namespace PronPasswordGen.Domain
+namespace PronPasswordGen.Domain.Generator
 {
     public class ChunkDirectGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {

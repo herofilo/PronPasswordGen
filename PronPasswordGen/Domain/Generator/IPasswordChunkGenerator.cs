@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PronPasswordGen.Domain
+namespace PronPasswordGen.Domain.Generator
 {
     public interface IPasswordChunkGenerator
     {

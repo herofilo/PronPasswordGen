@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PronPasswordGen.Domain;
+using PronPasswordGen.Domain.Generator;
+using PronPasswordGen.Domain.StrengthMeter;
+using PronPasswordGen.Util;
 
 namespace PronPasswordGen
 {
@@ -14,6 +17,8 @@ namespace PronPasswordGen
     {
 
         private PasswordGenerator _passwordGenerator = new PasswordGenerator();
+
+        private PasswordStrength _passwordStrengthMeter = new PasswordStrength();
 
         // ---------------------------------------------------------------------------
 
@@ -24,6 +29,8 @@ namespace PronPasswordGen
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Text = $@"Pronounceable Password Generator  (version {Utils.GetExecutableVersion()})";
+
             tbSpecials.Text = PasswordChunkGeneratorBase.Specials;
             tbFixedSeparator.Text = PasswordGenerator.SeparatorsDefault.Substring(0, 1);
             tbSeparators.Text = PasswordGenerator.SeparatorsDefault;
@@ -60,8 +67,12 @@ namespace PronPasswordGen
                     continue;
                 }
 
+                _passwordStrengthMeter.SetPassword(password);
+                int strengthScore = _passwordStrengthMeter.GetPasswordScore();
+                string strength = _passwordStrengthMeter.GetPasswordStrength();
+                // DataTable strengthDetails =  _passwordStrengthMeter.GetStrengthDetails();
                 string sepPassword = _passwordGenerator.LastPassword.TextDelimited.Replace("\t", " ");
-                tbOutput.AppendText($"{password}             [len={password.Length}  {sepPassword}]\n");
+                tbOutput.AppendText($"{password}       [len={password.Length} strength={strength} ({strengthScore})   {sepPassword}]\n");
             }
         }
 

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading;
+using PronPasswordGen.Util;
 
-namespace PronPasswordGen.Domain
+namespace PronPasswordGen.Domain.Generator
 {
     public sealed class PasswordGenerator
     {
@@ -240,16 +239,4 @@ namespace PronPasswordGen.Domain
             return builder.ToString();
         }
     }
-
-    [Flags]
-    public enum PasswordGeneratorOptions
-    {
-        None = 0,
-        Capitals = 0x1000,
-        Specials = 0x2000,
-        Separators = 0x4000,
-        SeparatorRotation = 0x0002
-    }
-
-
 }

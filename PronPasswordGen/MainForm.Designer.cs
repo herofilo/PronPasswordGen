@@ -54,19 +54,19 @@
             // 
             // tbOutput
             // 
-            this.tbOutput.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbOutput.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbOutput.Location = new System.Drawing.Point(3, 134);
             this.tbOutput.Multiline = true;
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ReadOnly = true;
             this.tbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbOutput.Size = new System.Drawing.Size(574, 249);
+            this.tbOutput.Size = new System.Drawing.Size(657, 249);
             this.tbOutput.TabIndex = 0;
             this.tbOutput.WordWrap = false;
             // 
             // pbGenerate
             // 
-            this.pbGenerate.Location = new System.Drawing.Point(502, 105);
+            this.pbGenerate.Location = new System.Drawing.Point(585, 105);
             this.pbGenerate.Name = "pbGenerate";
             this.pbGenerate.Size = new System.Drawing.Size(75, 23);
             this.pbGenerate.TabIndex = 1;
@@ -166,7 +166,7 @@
             // cbSeparators
             // 
             this.cbSeparators.AutoSize = true;
-            this.cbSeparators.Location = new System.Drawing.Point(110, 68);
+            this.cbSeparators.Location = new System.Drawing.Point(110, 80);
             this.cbSeparators.Name = "cbSeparators";
             this.cbSeparators.Size = new System.Drawing.Size(77, 17);
             this.cbSeparators.TabIndex = 8;
@@ -216,7 +216,7 @@
             this.cbExtraInfo.AutoSize = true;
             this.cbExtraInfo.Checked = true;
             this.cbExtraInfo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbExtraInfo.Location = new System.Drawing.Point(504, 82);
+            this.cbExtraInfo.Location = new System.Drawing.Point(587, 82);
             this.cbExtraInfo.Name = "cbExtraInfo";
             this.cbExtraInfo.Size = new System.Drawing.Size(70, 17);
             this.cbExtraInfo.TabIndex = 13;
@@ -227,7 +227,7 @@
             // 
             this.tbFixedSeparator.Enabled = false;
             this.tbFixedSeparator.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFixedSeparator.Location = new System.Drawing.Point(193, 63);
+            this.tbFixedSeparator.Location = new System.Drawing.Point(193, 75);
             this.tbFixedSeparator.MaxLength = 1;
             this.tbFixedSeparator.Name = "tbFixedSeparator";
             this.tbFixedSeparator.Size = new System.Drawing.Size(42, 22);
@@ -237,7 +237,7 @@
             // 
             this.cbRotSeparators.AutoSize = true;
             this.cbRotSeparators.Enabled = false;
-            this.cbRotSeparators.Location = new System.Drawing.Point(130, 91);
+            this.cbRotSeparators.Location = new System.Drawing.Point(253, 79);
             this.cbRotSeparators.Name = "cbRotSeparators";
             this.cbRotSeparators.Size = new System.Drawing.Size(91, 17);
             this.cbRotSeparators.TabIndex = 15;
@@ -249,7 +249,7 @@
             // 
             this.tbSeparators.Enabled = false;
             this.tbSeparators.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSeparators.Location = new System.Drawing.Point(227, 89);
+            this.tbSeparators.Location = new System.Drawing.Point(350, 77);
             this.tbSeparators.Name = "tbSeparators";
             this.tbSeparators.Size = new System.Drawing.Size(105, 22);
             this.tbSeparators.TabIndex = 16;
@@ -257,7 +257,7 @@
             // pbSeparatorsSet
             // 
             this.pbSeparatorsSet.Enabled = false;
-            this.pbSeparatorsSet.Location = new System.Drawing.Point(338, 88);
+            this.pbSeparatorsSet.Location = new System.Drawing.Point(461, 76);
             this.pbSeparatorsSet.Name = "pbSeparatorsSet";
             this.pbSeparatorsSet.Size = new System.Drawing.Size(36, 23);
             this.pbSeparatorsSet.TabIndex = 17;
@@ -268,7 +268,7 @@
             // pbSeparatorsReset
             // 
             this.pbSeparatorsReset.Enabled = false;
-            this.pbSeparatorsReset.Location = new System.Drawing.Point(380, 88);
+            this.pbSeparatorsReset.Location = new System.Drawing.Point(503, 76);
             this.pbSeparatorsReset.Name = "pbSeparatorsReset";
             this.pbSeparatorsReset.Size = new System.Drawing.Size(47, 23);
             this.pbSeparatorsReset.TabIndex = 18;
@@ -280,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 386);
+            this.ClientSize = new System.Drawing.Size(665, 386);
             this.Controls.Add(this.pbSeparatorsReset);
             this.Controls.Add(this.pbSeparatorsSet);
             this.Controls.Add(this.tbSeparators);

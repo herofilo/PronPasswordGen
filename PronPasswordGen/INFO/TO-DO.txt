@@ -1,3 +1,15 @@
 
 TO-DO LIST
 ----------
++ Configurable:
+	- Probabilidades de tipos de sílabas
+	- Matriz de estado de sílabas
+	- Caracteres alfabéticos (y espacio)
+	- Símbolos por defecto
+	- Separadores por defecto
+	- Longitud password: mínimo máximo defecto
+	- Número a generar: mínimo máximo defecto
+	- Opciones por defecto
+	
+
+	

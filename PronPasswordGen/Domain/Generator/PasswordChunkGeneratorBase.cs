@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace PronPasswordGen.Domain
+namespace PronPasswordGen.Domain.Generator
 {
     public class PasswordChunkGeneratorBase 
     {
@@ -28,7 +28,7 @@ namespace PronPasswordGen.Domain
         protected readonly int NumbersLenght = Numbers.Length;
 
 
-        private const string SpecialsDefault = "!+.,:;-_@$|#?><";
+        private const string SpecialsDefault = "!+.,:;-_@$|#?><()[]^%&/=\\{}";
 
         public static string Specials
         {
