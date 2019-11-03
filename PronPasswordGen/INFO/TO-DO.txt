@@ -10,6 +10,6 @@ TO-DO LIST
 	- Longitud password: mínimo máximo defecto
 	- Número a generar: mínimo máximo defecto
 	- Opciones por defecto
-	
+
 
 	

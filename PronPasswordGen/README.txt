@@ -1,11 +1,16 @@
 PronPasswordGen, by jamoram
-Version: 1.0.0 (2019/11/02)
+Version: 1.2.0 (2019/11/03)
 
 A simple and flexible generator of pronounceable strong passwords
 
 
 VERSION HISTORY
 ---------------
+* v1.2.0 (2019/11/03)
+	Added class PasswordEntropy 
+	New form: password strength meter
+	Outputs to data grid
+	
 * v1.1.0 (2019/11/02)
 	Reorganization of classes
 	Added class PasswordStrength - Code by Peter Tewkesbury (https://www.codeproject.com/Articles/59186/Password-Strength-Control-2)

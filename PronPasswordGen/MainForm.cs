@@ -56,11 +56,15 @@ namespace PronPasswordGen
             }
 
 
-            tbOutput.Clear();
+            // tbOutput.Clear();
+            PasswordCollection passwords = new PasswordCollection();
 
             for (int count = 0; count < nudPassToGen.Value; ++count)
             {
                 string password = _passwordGenerator.Generate((int)nudPassLen.Value, options, fixedSeparator);
+                passwords.Append(_passwordGenerator.LastPassword);
+
+                /*
                 if (!cbExtraInfo.Checked)
                 {
                     tbOutput.AppendText($"{password}\n");
@@ -70,11 +74,26 @@ namespace PronPasswordGen
                 _passwordStrengthMeter.SetPassword(password);
                 int strengthScore = _passwordStrengthMeter.GetPasswordScore();
                 string strength = _passwordStrengthMeter.GetPasswordStrength();
+
+                int cardinality;
+                double entropy = PasswordEntropy.Compute(password, out cardinality);
+
                 // DataTable strengthDetails =  _passwordStrengthMeter.GetStrengthDetails();
                 string sepPassword = _passwordGenerator.LastPassword.TextDelimited.Replace("\t", " ");
-                tbOutput.AppendText($"{password}       [len={password.Length} strength={strength} ({strengthScore})   {sepPassword}]\n");
+                tbOutput.AppendText($"{password}       [{strength}({strengthScore})  H={entropy:F1}  len={password.Length}: {sepPassword}]\n");
+                */
             }
+
+            dgvPasswords.AutoGenerateColumns = false;
+
+            var bindingList = new SortableBindingList<PasswordCollectionItem>(passwords.Passwords);
+            BindingSource source = new BindingSource(bindingList, null);
+            dgvPasswords.DataSource = source;
         }
+
+
+
+
 
         private void pbSpecialSet_Click(object sender, EventArgs e)
         {
@@ -119,6 +138,30 @@ namespace PronPasswordGen
         {
             PasswordGenerator.Separators = null;
             tbSeparators.Text = PasswordGenerator.Separators;
+        }
+
+
+        // --------------------------------------------------------------------------------------------------------------
+
+        private void pbStrengthMeter_Click(object sender, EventArgs e)
+        {
+            StrengthMeterForm form = new StrengthMeterForm();
+            form.ShowDialog(this);
+        }
+
+
+        
+        private void dgvPasswords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvPasswords.SelectedCells[0].RowIndex;
+
+            string password = (string) dgvPasswords.Rows[index].Cells["colPassword"].Value;
+            if (string.IsNullOrEmpty(password))
+                return;
+
+            StrengthMeterForm form = new StrengthMeterForm(password);
+            form.ShowDialog(this);
+            // Mostrar detalles evaluación
         }
     }
 }

@@ -128,7 +128,7 @@ namespace PronPasswordGen.Domain.Generator
             string text = "";
             for (int count = 1; count < length; ++count)
             {
-                text += Numbers[Random.Next(NumbersLenght)];
+                text += Numbers[Random.Next(NumbersLength)];
             }
 
             bool specialFirst = Utils.Coin();

@@ -54,7 +54,7 @@ namespace PronPasswordGen.Domain.Generator
             {PasswordChunkType.Liquidified, 20 }
         };
 
-        private List<PasswordChunkType> _typeValuesGeneral, _typeValuesAftedDirectDip;
+        private List<PasswordChunkType> _typeValuesGeneral, _typeValuesAfterDirectDip, _typeValuesAfterDirect;
 
         private Random _random = new Random();
         
@@ -90,18 +90,22 @@ namespace PronPasswordGen.Domain.Generator
         private void PopulateTypeLists()
         {
             _typeValuesGeneral = new List<PasswordChunkType>();
-            _typeValuesAftedDirectDip = new List<PasswordChunkType>();
+            _typeValuesAfterDirect = new List<PasswordChunkType>();
+            _typeValuesAfterDirectDip = new List<PasswordChunkType>();
 
             foreach (KeyValuePair<PasswordChunkType, int> item in _chunkTypeProbability)
             {
-                bool appendAlternative = (item.Key != PasswordChunkType.Inverted ||
+                bool appendAfterDirect = (item.Key != PasswordChunkType.InvertedDiphtongue);
+                bool appendAfterDirectDip = (item.Key != PasswordChunkType.Inverted ||
                                           item.Key != PasswordChunkType.InvertedDiphtongue);
 
                 for (int count = 0; count < item.Value; ++count)
                 {
                     _typeValuesGeneral.Add(item.Key);
-                    if (appendAlternative)
-                        _typeValuesAftedDirectDip.Add(item.Key);
+                    if(appendAfterDirect)
+                        _typeValuesAfterDirect.Add(item.Key);
+                    if (appendAfterDirectDip)
+                        _typeValuesAfterDirectDip.Add(item.Key);
                 }
             }
         }
@@ -154,9 +158,13 @@ namespace PronPasswordGen.Domain.Generator
         {
 
 
-            List<PasswordChunkType> list = (pPassword.LastChunkType == PasswordChunkType.DirectDiphtongue)
-                ? _typeValuesAftedDirectDip
-                : _typeValuesGeneral;
+            List<PasswordChunkType> list;
+            switch (pPassword.LastChunkType)
+            {
+                case PasswordChunkType.Direct : list = _typeValuesAfterDirect; break;
+                case PasswordChunkType.DirectDiphtongue : list = _typeValuesAfterDirectDip; break;
+                default: list = _typeValuesGeneral; break;
+            }
 
             return list[_random.Next(list.Count)];
         }

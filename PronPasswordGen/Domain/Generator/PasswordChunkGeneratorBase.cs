@@ -25,10 +25,10 @@ namespace PronPasswordGen.Domain.Generator
 
         public const string Numbers = "0123456789";
 
-        protected readonly int NumbersLenght = Numbers.Length;
+        protected readonly int NumbersLength = Numbers.Length;
 
 
-        private const string SpecialsDefault = "!+.,:;-_@$|#?><()[]^%&/=\\{}";
+        public const string SpecialsDefault = "!+.,:;-_@$|#?><()[]^%&/=\\{}";
 
         public static string Specials
         {
@@ -74,8 +74,5 @@ namespace PronPasswordGen.Domain.Generator
 
             return $"{vowel0}{vowel1}";
         }
-
-
-
     }
 }
