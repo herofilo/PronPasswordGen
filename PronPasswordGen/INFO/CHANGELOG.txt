@@ -1,6 +1,16 @@
 
 CHANGELOG
 ----------
+* v1.3.0 (2019/11/03)
+	Table of Generated password: 
+		contextual menu:
+			- Copy password to clipboard
+			- Display details of strength evaluation (also by double-clicking)
+		Password strength categories colourized
+	PasswordChunkGeneratorBase.SpecialsDefault: added new symbols
+	PasswordEntropy.Compute(): searches for "alien" chars and adds them to cardinality
+	PasswordGeneratorOptionsEx
+
 * v1.2.0 (2019/11/03)
 	Added class PasswordEntropy 
 	New form: password strength meter

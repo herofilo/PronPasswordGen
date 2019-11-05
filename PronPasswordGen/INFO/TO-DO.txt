@@ -11,5 +11,12 @@ TO-DO LIST
 	- Número a generar: mínimo máximo defecto
 	- Opciones por defecto
 
++ Instrucciones y explicación en README
 
-	
++ Capitals mínimo
++ Specials: mínimo grupos
+		blank si/no
+		Opción blank no debe ser primero/último
+		símbolo en cualquier posición
+		
+		

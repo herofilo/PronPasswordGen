@@ -63,25 +63,6 @@ namespace PronPasswordGen
             {
                 string password = _passwordGenerator.Generate((int)nudPassLen.Value, options, fixedSeparator);
                 passwords.Append(_passwordGenerator.LastPassword);
-
-                /*
-                if (!cbExtraInfo.Checked)
-                {
-                    tbOutput.AppendText($"{password}\n");
-                    continue;
-                }
-
-                _passwordStrengthMeter.SetPassword(password);
-                int strengthScore = _passwordStrengthMeter.GetPasswordScore();
-                string strength = _passwordStrengthMeter.GetPasswordStrength();
-
-                int cardinality;
-                double entropy = PasswordEntropy.Compute(password, out cardinality);
-
-                // DataTable strengthDetails =  _passwordStrengthMeter.GetStrengthDetails();
-                string sepPassword = _passwordGenerator.LastPassword.TextDelimited.Replace("\t", " ");
-                tbOutput.AppendText($"{password}       [{strength}({strengthScore})  H={entropy:F1}  len={password.Length}: {sepPassword}]\n");
-                */
             }
 
             dgvPasswords.AutoGenerateColumns = false;
@@ -153,15 +134,73 @@ namespace PronPasswordGen
         
         private void dgvPasswords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = dgvPasswords.SelectedCells[0].RowIndex;
+            DisplayStrengthEvaluationDetails();
+        }
 
-            string password = (string) dgvPasswords.Rows[index].Cells["colPassword"].Value;
-            if (string.IsNullOrEmpty(password))
+
+        private void DisplayStrengthEvaluationDetails()
+        {
+            string password = GetSelectedPassword();
+            if (password == null)
                 return;
 
             StrengthMeterForm form = new StrengthMeterForm(password);
             form.ShowDialog(this);
-            // Mostrar detalles evaluación
+        }
+
+
+        private string GetSelectedPassword()
+        {
+            if ((dgvPasswords.SelectedRows == null) || (dgvPasswords.SelectedRows.Count == 0))
+                return null;
+
+            return (string) dgvPasswords.SelectedRows[0].Cells["colPassword"].Value;
+        }
+
+
+
+
+        private void cmPasswords_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvPasswords.RowCount == 0)
+                e.Cancel = true;
+        }
+
+        private void tmiCopyPassword_Click(object sender, EventArgs e)
+        {
+            string password = GetSelectedPassword();
+            if (password == null)
+                return;
+
+            Clipboard.Clear();
+            Clipboard.SetText(password);
+        }
+
+        private void tmiStrengthDetails_Click(object sender, EventArgs e)
+        {
+            DisplayStrengthEvaluationDetails();
+        }
+
+
+        
+        private void dgvPasswords_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvPasswords.Rows)
+            {
+                DataGridViewCell cell = row.Cells["colStrength"];
+
+                string strength = (string) cell.Value;
+                
+
+                switch (strength.ToLower())
+                {
+                    case "very weak": cell.Style.BackColor = Color.Red; cell.Style.ForeColor = Color.White; break;
+                    case "weak": cell.Style.BackColor = Color.Orange; cell.Style.ForeColor = Color.Black; break;
+                    case "good": cell.Style.BackColor = Color.Yellow; cell.Style.ForeColor = Color.Black; break;
+                    case "strong": cell.Style.BackColor = Color.GreenYellow; cell.Style.ForeColor = Color.Black; break;
+                    case "very strong": cell.Style.BackColor = Color.Green; cell.Style.ForeColor = Color.White; break;
+                }
+            }
         }
     }
 }

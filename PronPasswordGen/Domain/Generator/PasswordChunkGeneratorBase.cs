@@ -28,7 +28,7 @@ namespace PronPasswordGen.Domain.Generator
         protected readonly int NumbersLength = Numbers.Length;
 
 
-        public const string SpecialsDefault = "!+.,:;-_@$|#?><()[]^%&/=\\{}";
+        public const string SpecialsDefault = "! +.,:;-_@$|#?><()[]^%&/=\\{}`~*'\"";
 
         public static string Specials
         {

@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbGenerate = new System.Windows.Forms.Button();
             this.nudPassLen = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,16 +57,21 @@
             this.pbStrengthMeter = new System.Windows.Forms.Button();
             this.pbSetup = new System.Windows.Forms.Button();
             this.dgvPasswords = new System.Windows.Forms.DataGridView();
+            this.cmPasswords = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tmiCopyPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiStrengthDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.colPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStrength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStrengthValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCardinality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEntropy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSepText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassToGen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasswords)).BeginInit();
+            this.cmPasswords.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbGenerate
@@ -299,22 +306,49 @@
             this.colStrengthValue,
             this.colCardinality,
             this.colEntropy,
+            this.colRank,
             this.colLength,
             this.colSepText});
+            this.dgvPasswords.ContextMenuStrip = this.cmPasswords;
             this.dgvPasswords.Location = new System.Drawing.Point(3, 134);
             this.dgvPasswords.MultiSelect = false;
             this.dgvPasswords.Name = "dgvPasswords";
             this.dgvPasswords.ReadOnly = true;
+            this.dgvPasswords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPasswords.Size = new System.Drawing.Size(657, 249);
             this.dgvPasswords.TabIndex = 21;
             this.dgvPasswords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPasswords_CellDoubleClick);
+            this.dgvPasswords.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPasswords_DataBindingComplete);
+            // 
+            // cmPasswords
+            // 
+            this.cmPasswords.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmiCopyPassword,
+            this.tmiStrengthDetails});
+            this.cmPasswords.Name = "cmPasswords";
+            this.cmPasswords.Size = new System.Drawing.Size(230, 48);
+            this.cmPasswords.Opening += new System.ComponentModel.CancelEventHandler(this.cmPasswords_Opening);
+            // 
+            // tmiCopyPassword
+            // 
+            this.tmiCopyPassword.Name = "tmiCopyPassword";
+            this.tmiCopyPassword.Size = new System.Drawing.Size(229, 22);
+            this.tmiCopyPassword.Text = "Copy Password to Clipboard";
+            this.tmiCopyPassword.Click += new System.EventHandler(this.tmiCopyPassword_Click);
+            // 
+            // tmiStrengthDetails
+            // 
+            this.tmiStrengthDetails.Name = "tmiStrengthDetails";
+            this.tmiStrengthDetails.Size = new System.Drawing.Size(229, 22);
+            this.tmiStrengthDetails.Text = "Details of Strength Evaluation";
+            this.tmiStrengthDetails.Click += new System.EventHandler(this.tmiStrengthDetails_Click);
             // 
             // colPassword
             // 
             this.colPassword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colPassword.DataPropertyName = "Password";
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPassword.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPassword.DefaultCellStyle = dataGridViewCellStyle1;
             this.colPassword.HeaderText = "Password";
             this.colPassword.Name = "colPassword";
             this.colPassword.ReadOnly = true;
@@ -333,8 +367,8 @@
             // 
             this.colStrengthValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colStrengthValue.DataPropertyName = "StrengthValue";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colStrengthValue.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colStrengthValue.DefaultCellStyle = dataGridViewCellStyle2;
             this.colStrengthValue.HeaderText = "Val.";
             this.colStrengthValue.Name = "colStrengthValue";
             this.colStrengthValue.ReadOnly = true;
@@ -344,8 +378,8 @@
             // 
             this.colCardinality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colCardinality.DataPropertyName = "Cardinality";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colCardinality.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colCardinality.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCardinality.HeaderText = "Cardin.";
             this.colCardinality.Name = "colCardinality";
             this.colCardinality.ReadOnly = true;
@@ -355,21 +389,32 @@
             // 
             this.colEntropy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colEntropy.DataPropertyName = "Entropy";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "F1";
-            dataGridViewCellStyle22.NullValue = null;
-            this.colEntropy.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "F1";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colEntropy.DefaultCellStyle = dataGridViewCellStyle4;
             this.colEntropy.HeaderText = "H (bits)";
             this.colEntropy.Name = "colEntropy";
             this.colEntropy.ReadOnly = true;
             this.colEntropy.Width = 65;
             // 
+            // colRank
+            // 
+            this.colRank.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colRank.DataPropertyName = "Rank";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colRank.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colRank.HeaderText = "Rank";
+            this.colRank.Name = "colRank";
+            this.colRank.ReadOnly = true;
+            this.colRank.Width = 58;
+            // 
             // colLength
             // 
             this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colLength.DataPropertyName = "Length";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colLength.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colLength.DefaultCellStyle = dataGridViewCellStyle6;
             this.colLength.HeaderText = "Len.";
             this.colLength.Name = "colLength";
             this.colLength.ReadOnly = true;
@@ -379,8 +424,8 @@
             // 
             this.colSepText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colSepText.DataPropertyName = "SepText";
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Courier New", 9F);
-            this.colSepText.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Courier New", 9F);
+            this.colSepText.DefaultCellStyle = dataGridViewCellStyle7;
             this.colSepText.HeaderText = "Chunks";
             this.colSepText.Name = "colSepText";
             this.colSepText.ReadOnly = true;
@@ -420,6 +465,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassToGen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasswords)).EndInit();
+            this.cmPasswords.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,11 +492,15 @@
         private System.Windows.Forms.Button pbStrengthMeter;
         private System.Windows.Forms.Button pbSetup;
         private System.Windows.Forms.DataGridView dgvPasswords;
+        private System.Windows.Forms.ContextMenuStrip cmPasswords;
+        private System.Windows.Forms.ToolStripMenuItem tmiCopyPassword;
+        private System.Windows.Forms.ToolStripMenuItem tmiStrengthDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStrength;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStrengthValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCardinality;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEntropy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRank;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSepText;
     }

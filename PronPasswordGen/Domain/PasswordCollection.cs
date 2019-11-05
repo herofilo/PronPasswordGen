@@ -19,8 +19,12 @@ namespace PronPasswordGen.Domain
                 Passwords = new List<PasswordCollectionItem>();
 
             Passwords.Add(new PasswordCollectionItem(pPassword));
-        }
 
+            Passwords = Passwords.OrderBy(o => -1 * o.CombinedStrength).ToList();
+
+            for (int index = 0; index < Passwords.Count; ++index)
+                Passwords[index].Rank = index + 1;
+        }
     }
 
 
@@ -42,6 +46,10 @@ namespace PronPasswordGen.Domain
 
         public double Entropy { get; private set; }
 
+        public long CombinedStrength { get; private set; }
+
+        public int Rank { get; set; }
+
         public string SepText { get; private set; }
 
 
@@ -60,6 +68,8 @@ namespace PronPasswordGen.Domain
 
             int cardinality;
             Entropy = PasswordEntropy.Compute(Password, out cardinality);
+
+            CombinedStrength = (long) (100.0 * Entropy + StrengthValue);
 
             Cardinality = cardinality;
 

@@ -10,6 +10,13 @@ namespace PronPasswordGen.Domain.Generator
 
         public const int PasswordMinLength = 6;
 
+        public const char FixedSeparatorDefault = '.';
+
+        public const int CapitalsMinimumDefault = 1;
+
+        public const int SpecialGroupsMaxDefault = 1;
+
+
         public const string SeparatorsDefault = ".,;:-_";
 
         public static string Separators
@@ -113,7 +120,7 @@ namespace PronPasswordGen.Domain.Generator
 
         // .................................................................................................
 
-        public string Generate(int pLength, PasswordGeneratorOptions pOptions = PasswordGeneratorOptions.None, char pFixedSeparator = '.')
+        public string Generate(int pLength, PasswordGeneratorOptions pOptions = PasswordGeneratorOptions.None, char pFixedSeparator = FixedSeparatorDefault)
         {
             if (pLength < PasswordMinLength)
                 pLength = PasswordMinLength;

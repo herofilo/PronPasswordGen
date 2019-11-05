@@ -165,7 +165,7 @@
         5DB0/qbrzUu3vG5du73i9uBw6PCdkeiR0TvsO1N3U+6+uJd5b+H+xgfoB0UPpR5WPFJ81PCz7s9to5aj
         p8dcx/ofBz++P84af/ZLxi/vJwqekJ9UTKpMNk+ZTZ2adp++8XTl04ln6c8WZgp/lf619rnO8x9+c/yt
         fzZiduIF/8Wn30teyr889GrZq565gLlHr1NfL8wXvZF/c/gt423fu/B3kwtZ77HvKz/ofuj+6PPxwafU
-        T5/+BQOY8/yUGUl9AAAACXBIWXMAAAsSAAAuIgEzHcwEAAAAB3RJTUUH4wsDCToa7ntB/wAAAkNJREFU
+        T5/+BQOY8/yUGUl9AAAACXBIWXMAAAsRAAAuIgG1ib6qAAAAB3RJTUUH4wsDCToa7ntB/wAAAkNJREFU
         SEu1lE1rE0Ecxp9JUqq2QkW0FysUP4J4qPgB/AYeogWLFnJQr3oUPLXZJHqzCIUeWyEVa6yIBK0XMcmi
         olVqUz3YQ730xZbNy+74zKabbHTW0zjwm5dn/jzP7Cy7kFL+V7SiSbSiSbSiSbSiSbRiJLOIF4tIaPci
         0IotIPZWcKKxhlteFTaR8huePy7BflqGLFQ4lnDz2QcMqVq9R0TA9jKOulVM0HRTrlJS5mpcQ37BxpIK
@@ -181,7 +181,7 @@
   <data name="pbSetup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfjCBMIOBOz6tyh
+        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfjCBMIOBOz6tyh
         AAABr0lEQVQ4T32TQSvEURTF/++9GY3NZD+xMZQskImNsuB7KCnTKCumySRZyJKyQUnZySdgMyyVhWah
         UVbkE0gRNX73vjsmGU7d7rnnnnff+783k/wF713ROfdJ/iCWTP4f3vs5ozLg2jk/jTbFoLrJCfzbo8DY
         yjWaT+RXokQ0tQGEE0XihXjEd2WtCHYpId5HHgrwM7RJbQL4BAtPQ/CFWLs6nuVW07LsEvKYtO4Mn9Dv
@@ -207,25 +207,7 @@
   <metadata name="colEntropy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colLength.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSepText.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colPassword.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colStrength.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colStrengthValue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colCardinality.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colEntropy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colRank.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colLength.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -233,6 +215,9 @@
   </metadata>
   <metadata name="colSepText.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="cmPasswords.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
