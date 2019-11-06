@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using PronPasswordGen.Util;
 
 namespace PronPasswordGen.Domain.Generator
@@ -10,6 +11,10 @@ namespace PronPasswordGen.Domain.Generator
     {
 
         // ------------------------------------------------------------------------------------------------------------------
+
+        public void SetCharacterSet(string pCharacterSet)
+        {
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -25,7 +30,9 @@ namespace PronPasswordGen.Domain.Generator
 
     public class ChunkDirectDipGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {
-
+        public void SetCharacterSet(string pCharacterSet)
+        {
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -42,7 +49,9 @@ namespace PronPasswordGen.Domain.Generator
 
     public class ChunkInvertedGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {
-
+        public void SetCharacterSet(string pCharacterSet)
+        {
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -58,7 +67,9 @@ namespace PronPasswordGen.Domain.Generator
 
     public class ChunkInvertedDipGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {
-
+        public void SetCharacterSet(string pCharacterSet)
+        {
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -75,7 +86,9 @@ namespace PronPasswordGen.Domain.Generator
 
     public class ChunkMixedGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {
-
+        public void SetCharacterSet(string pCharacterSet)
+        {
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -91,7 +104,9 @@ namespace PronPasswordGen.Domain.Generator
 
     public class ChunkLiquidGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {
-
+        public void SetCharacterSet(string pCharacterSet)
+        {
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -115,6 +130,51 @@ namespace PronPasswordGen.Domain.Generator
     public class ChunkSpecialGenerator : PasswordChunkGeneratorBase, IPasswordChunkGenerator
     {
 
+        public string SpecialSymbols
+        {
+            get { return _specials; }
+            private set
+            {
+                if (value == null)
+                {
+                    _specials = SpecialsDefault;
+                    return;
+                }
+
+                string newSpecials = "";
+                foreach (char c in value)
+                {
+                    if (Char.IsLetterOrDigit(c) || Char.IsControl(c))
+                        continue;
+                    newSpecials += c;
+                }
+
+                if (string.IsNullOrEmpty(newSpecials))
+                    newSpecials = SpecialsDefault;
+
+                _specials = newSpecials;
+            }
+        }
+
+        private static string _specials = SpecialsDefault;
+
+
+
+        public ChunkSpecialGenerator()
+        {
+
+        }
+
+        public ChunkSpecialGenerator(string pSpecials)
+        {
+            SpecialSymbols = pSpecials;
+        }
+
+
+        public void SetCharacterSet(string pCharacterSet)
+        {
+            SpecialSymbols = pCharacterSet;
+        }
 
         public new PasswordChunk Get(PasswordChunk pReferenceChunk)
         {
@@ -132,7 +192,7 @@ namespace PronPasswordGen.Domain.Generator
             }
 
             bool specialFirst = Utils.Coin();
-            char special = Specials[Random.Next(Specials.Length)];
+            char special = _specials[Random.Next(_specials.Length)];
 
             chunk.Text = specialFirst
                 ? chunk.Text = $"{special}{text}"

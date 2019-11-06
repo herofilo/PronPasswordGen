@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using PronPasswordGen.Util;
 
 namespace PronPasswordGen.Domain.Generator
@@ -10,9 +11,15 @@ namespace PronPasswordGen.Domain.Generator
 
         public const int PasswordMinLength = 6;
 
+        public const int PasswordDefaultLength = 8;
+
         public const char FixedSeparatorDefault = '.';
 
         public const int CapitalsMinimumDefault = 1;
+
+        public const int CapitalsMaximumDefault = 99;
+
+        public const int SpecialGroupsMinDefault = 1;
 
         public const int SpecialGroupsMaxDefault = 1;
 
@@ -49,22 +56,16 @@ namespace PronPasswordGen.Domain.Generator
         public Password LastPassword { get; private set; }
 
         // Dictionary tipo -> gen
+
+
+
         private Dictionary<PasswordChunkType, IPasswordChunkGenerator> _chunkGenerators;
 
-        private Dictionary<PasswordChunkType, int> _chunkTypeProbability = new Dictionary<PasswordChunkType, int>()
-        {
-            {PasswordChunkType.Direct, 50 },
-            {PasswordChunkType.DirectDiphtongue, 10 },
-            {PasswordChunkType.Inverted, 10 },
-            {PasswordChunkType.InvertedDiphtongue, 5 },
-            {PasswordChunkType.Mixed, 20 },
-            {PasswordChunkType.Liquidified, 20 }
-        };
+        private Dictionary<PasswordChunkType, int> _chunkTypeProbability = PasswordChunkTypeWeight.ChunkTypeProbabilityDefault;
 
         private List<PasswordChunkType> _typeValuesGeneral, _typeValuesAfterDirectDip, _typeValuesAfterDirect;
 
         private Random _random = new Random();
-        
 
 
         // -----------------------------------------------------------------------------------------------------------------------------
@@ -77,7 +78,7 @@ namespace PronPasswordGen.Domain.Generator
 
         }
 
-
+        #region Initialization
         private void CreateChunkGenerators()
         {
             _chunkGenerators = new Dictionary<PasswordChunkType, IPasswordChunkGenerator>();
@@ -92,6 +93,28 @@ namespace PronPasswordGen.Domain.Generator
             _chunkGenerators.Add(PasswordChunkType.Special, new ChunkSpecialGenerator());
 
         }
+
+
+        public List<PasswordChunkTypeWeight> GetChunkTypeWeights()
+        {
+            return PasswordChunkTypeWeight.GetChunkTypeWeights(_chunkTypeProbability);
+        }
+
+
+
+        public bool SetChunkTypeWeights(List<PasswordChunkTypeWeight> pWeights)
+        {
+            Dictionary<PasswordChunkType, int> newProbabilities = PasswordChunkTypeWeight.ChunkTypeWeightsToProbabilities(pWeights);
+            if (newProbabilities == null)
+                return false;
+
+            _chunkTypeProbability = newProbabilities;
+
+            PopulateTypeLists();
+
+            return true;
+        }
+
 
 
         private void PopulateTypeLists()
@@ -109,7 +132,7 @@ namespace PronPasswordGen.Domain.Generator
                 for (int count = 0; count < item.Value; ++count)
                 {
                     _typeValuesGeneral.Add(item.Key);
-                    if(appendAfterDirect)
+                    if (appendAfterDirect)
                         _typeValuesAfterDirect.Add(item.Key);
                     if (appendAfterDirectDip)
                         _typeValuesAfterDirectDip.Add(item.Key);
@@ -117,11 +140,13 @@ namespace PronPasswordGen.Domain.Generator
             }
         }
 
+        #endregion Initialization
 
         // .................................................................................................
 
-        public string Generate(int pLength, PasswordGeneratorOptions pOptions = PasswordGeneratorOptions.None, char pFixedSeparator = FixedSeparatorDefault)
+        public string Generate(int pLength, PasswordGeneratorOptionsEx pOptions)
         {
+
             if (pLength < PasswordMinLength)
                 pLength = PasswordMinLength;
 
@@ -132,18 +157,29 @@ namespace PronPasswordGen.Domain.Generator
                 password.AppendChunk(chunk);
             }
 
-            if (pOptions.HasFlag(PasswordGeneratorOptions.Specials))
-                InsertSpecialChunk(password);
+            bool capitalsRandom = false;
+            if (pOptions.Options.HasFlag(PasswordGeneratorOptions.Capitals))
+            {
+                if (pOptions.Options.HasFlag(PasswordGeneratorOptions.CapitalsFirstInChunks) ||
+                    pOptions.Options.HasFlag(PasswordGeneratorOptions.CapitalsLastInChunks))
+                    CapitalizeChunks(password, pOptions.Options);
+                else
+                    capitalsRandom = true;
+            }
 
-            if (pOptions.HasFlag(PasswordGeneratorOptions.Capitals))
-                CapitalizePassword(password);
+            if (pOptions.Options.HasFlag(PasswordGeneratorOptions.Specials))
+                InsertSpecialChunk(password, pOptions.SpecialGroupSymbols, !pOptions.Options.HasFlag(PasswordGeneratorOptions.SpecialsNotBlank), pOptions.SpecialGroupsMin, pOptions.SpecialGroupsMax);
 
-            if (pOptions.HasFlag(PasswordGeneratorOptions.Separators))
-                InsertSeparators(password, pOptions.HasFlag(PasswordGeneratorOptions.SeparatorRotation), pFixedSeparator);
+            if (capitalsRandom)
+                CapitalizeRandomPassword(password, pOptions.CapitalsMinimum, pOptions.CapitalsMaximum);
+
+            if (pOptions.Options.HasFlag(PasswordGeneratorOptions.Separators))
+                InsertSeparators(password, pOptions.Options.HasFlag(PasswordGeneratorOptions.SeparatorRotation), pOptions.FixedSeparatorChar);
 
             LastPassword = password;
 
             return password.Text;
+
         }
 
 
@@ -168,8 +204,8 @@ namespace PronPasswordGen.Domain.Generator
             List<PasswordChunkType> list;
             switch (pPassword.LastChunkType)
             {
-                case PasswordChunkType.Direct : list = _typeValuesAfterDirect; break;
-                case PasswordChunkType.DirectDiphtongue : list = _typeValuesAfterDirectDip; break;
+                case PasswordChunkType.Direct: list = _typeValuesAfterDirect; break;
+                case PasswordChunkType.DirectDiphtongue: list = _typeValuesAfterDirectDip; break;
                 default: list = _typeValuesGeneral; break;
             }
 
@@ -178,18 +214,77 @@ namespace PronPasswordGen.Domain.Generator
 
         // ----------------------------------------------------------------------------------------------------------------------------
 
-        private void InsertSpecialChunk(Password pPassword)
+        private void CapitalizeChunks(Password pPassword, PasswordGeneratorOptions pOptions)
         {
+            bool capitalFirst = pOptions.HasFlag(PasswordGeneratorOptions.CapitalsFirstInChunks);
+
+            for (int index = 0; index < pPassword.ChunkCount; ++index)
+            {
+                string text = pPassword.Chunks[index].Text;
+                text = (capitalFirst)
+                    ? text.Substring(0, 1).ToUpper() + text.Substring(1)
+                    : text.Substring(0, text.Length - 1) + text.Substring(text.Length - 1, 1).ToUpper();
+                pPassword.Chunks[index].Text = text;
+            }
+        }
+
+
+
+        private void InsertSpecialChunk(Password pPassword, string pSpecialSymbols, bool pAcceptBlanks, int pMinimum, int pMaximum)
+        {
+            if (pSpecialSymbols.Contains(" ") && !pAcceptBlanks)
+            {
+                pSpecialSymbols = pSpecialSymbols.Replace(" ", "");
+            }
+
+            pMaximum = (pMaximum <= (pPassword.ChunkCount / 2)) ? pMaximum : (pPassword.ChunkCount / 2);
+
+            _chunkGenerators[PasswordChunkType.Special].SetCharacterSet(pSpecialSymbols);
+
             int index = _random.Next(pPassword.ChunkCount);
 
             PasswordChunk specialChunk = _chunkGenerators[PasswordChunkType.Special].Get(pPassword.Chunks[index]);
 
             pPassword.ReplaceChunk(specialChunk, index);
+
+            if (pMaximum == 1)
+                return;
+
+            List<int> validChunks = new List<int>();
+            for (int count = 0; count < pPassword.ChunkCount; ++count)
+                validChunks.Add(count);
+
+            SpecialChunkRemoveValid(validChunks, index);
+            for (int count = 1; count < pMaximum; ++count)
+            {
+                if (validChunks.Count == 0)
+                    break;
+                if (_random.Next(100) < 20)
+                {
+                    int validIndex = _random.Next(validChunks.Count);
+                    index = validChunks[validIndex];
+                    specialChunk = _chunkGenerators[PasswordChunkType.Special].Get(pPassword.Chunks[index]);
+                    pPassword.ReplaceChunk(specialChunk, index);
+                    SpecialChunkRemoveValid(validChunks, index);
+                }
+            }
         }
+
+        private void SpecialChunkRemoveValid(List<int> validChunks, int pIndex)
+        {
+            if (validChunks.Contains(pIndex))
+                validChunks.Remove(pIndex);
+            if (validChunks.Contains(pIndex - 1))
+                validChunks.Remove(pIndex - 1);
+            if (validChunks.Contains(pIndex + 1))
+                validChunks.Remove(pIndex + 1);
+
+        }
+
 
         // ----------------------------------------------------------------------------------------------------------------------------
 
-        private void CapitalizePassword(Password pPassword)
+        private void CapitalizeRandomPassword(Password pPassword, int pMinimum, int pMaximum)
         {
             int capitalized = 0;
 
@@ -198,15 +293,28 @@ namespace PronPasswordGen.Domain.Generator
                 int probability = 50;
                 for (int index = 0; index < pPassword.ChunkCount; ++index)
                 {
+                    PasswordChunk chunk = pPassword.Chunks[index];
+                    if (chunk.ChunkType == PasswordChunkType.Special)
+                        continue;
+
                     if (_random.Next(100) < probability)
                     {
-                        bool lastLetter = Utils.Coin();
+                        bool lastLetter;
+                        if (chunk.CapitalizedFirst && chunk.CapitalizedLast)
+                            continue;
+                        if (chunk.CapitalizedFirst)
+                            lastLetter = true;
+                        else
+                            lastLetter = !chunk.CapitalizedLast && Utils.Coin();
+
                         if (pPassword.CapitalizeChunk(index, lastLetter))
                         {
                             capitalized++;
                             probability -= 20;
                             if (probability <= 0)
                                 break;
+                            if (capitalized > pMaximum)
+                                return;
                         }
                     }
                 }

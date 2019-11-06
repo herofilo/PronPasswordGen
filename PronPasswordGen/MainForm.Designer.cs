@@ -30,36 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbGenerate = new System.Windows.Forms.Button();
             this.nudPassLen = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nudPassToGen = new System.Windows.Forms.NumericUpDown();
-            this.cbCapitals = new System.Windows.Forms.CheckBox();
             this.cbSpecials = new System.Windows.Forms.CheckBox();
             this.cbSeparators = new System.Windows.Forms.CheckBox();
             this.tbSpecials = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pbSpecialSet = new System.Windows.Forms.Button();
             this.pbSpecialsReset = new System.Windows.Forms.Button();
             this.tbFixedSeparator = new System.Windows.Forms.TextBox();
             this.cbRotSeparators = new System.Windows.Forms.CheckBox();
             this.tbSeparators = new System.Windows.Forms.TextBox();
-            this.pbSeparatorsSet = new System.Windows.Forms.Button();
             this.pbSeparatorsReset = new System.Windows.Forms.Button();
             this.pbStrengthMeter = new System.Windows.Forms.Button();
             this.pbSetup = new System.Windows.Forms.Button();
             this.dgvPasswords = new System.Windows.Forms.DataGridView();
-            this.cmPasswords = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tmiCopyPassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmiStrengthDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.colPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStrength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStrengthValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,15 +62,33 @@
             this.colRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSepText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmPasswords = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tmiCopyPassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiStrengthDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblCapMax = new System.Windows.Forms.Label();
+            this.nudCapitalsMax = new System.Windows.Forms.NumericUpDown();
+            this.lblSpecialMax = new System.Windows.Forms.Label();
+            this.nudSpecialsMax = new System.Windows.Forms.NumericUpDown();
+            this.cbBlanks = new System.Windows.Forms.CheckBox();
+            this.pbHelp = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbCapitalsNone = new System.Windows.Forms.RadioButton();
+            this.rbCapitalsFirst = new System.Windows.Forms.RadioButton();
+            this.rbCapitalsLast = new System.Windows.Forms.RadioButton();
+            this.rbCapitalsRandom = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassToGen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasswords)).BeginInit();
             this.cmPasswords.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCapitalsMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSpecialsMax)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbGenerate
             // 
-            this.pbGenerate.Location = new System.Drawing.Point(585, 105);
+            this.pbGenerate.Location = new System.Drawing.Point(578, 144);
             this.pbGenerate.Name = "pbGenerate";
             this.pbGenerate.Size = new System.Drawing.Size(75, 23);
             this.pbGenerate.TabIndex = 1;
@@ -148,24 +160,12 @@
             0,
             0});
             // 
-            // cbCapitals
-            // 
-            this.cbCapitals.AutoSize = true;
-            this.cbCapitals.Checked = true;
-            this.cbCapitals.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbCapitals.Location = new System.Drawing.Point(15, 45);
-            this.cbCapitals.Name = "cbCapitals";
-            this.cbCapitals.Size = new System.Drawing.Size(63, 17);
-            this.cbCapitals.TabIndex = 6;
-            this.cbCapitals.Text = "Capitals";
-            this.cbCapitals.UseVisualStyleBackColor = true;
-            // 
             // cbSpecials
             // 
             this.cbSpecials.AutoSize = true;
             this.cbSpecials.Checked = true;
             this.cbSpecials.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbSpecials.Location = new System.Drawing.Point(110, 45);
+            this.cbSpecials.Location = new System.Drawing.Point(16, 114);
             this.cbSpecials.Name = "cbSpecials";
             this.cbSpecials.Size = new System.Drawing.Size(125, 17);
             this.cbSpecials.TabIndex = 7;
@@ -176,7 +176,7 @@
             // cbSeparators
             // 
             this.cbSeparators.AutoSize = true;
-            this.cbSeparators.Location = new System.Drawing.Point(110, 80);
+            this.cbSeparators.Location = new System.Drawing.Point(16, 144);
             this.cbSeparators.Name = "cbSeparators";
             this.cbSeparators.Size = new System.Drawing.Size(77, 17);
             this.cbSeparators.TabIndex = 8;
@@ -187,7 +187,7 @@
             // tbSpecials
             // 
             this.tbSpecials.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSpecials.Location = new System.Drawing.Point(315, 42);
+            this.tbSpecials.Location = new System.Drawing.Point(300, 111);
             this.tbSpecials.Name = "tbSpecials";
             this.tbSpecials.Size = new System.Drawing.Size(140, 22);
             this.tbSpecials.TabIndex = 9;
@@ -195,25 +195,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(261, 46);
+            this.label3.Location = new System.Drawing.Point(246, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Specials:";
             // 
-            // pbSpecialSet
-            // 
-            this.pbSpecialSet.Location = new System.Drawing.Point(461, 41);
-            this.pbSpecialSet.Name = "pbSpecialSet";
-            this.pbSpecialSet.Size = new System.Drawing.Size(37, 23);
-            this.pbSpecialSet.TabIndex = 11;
-            this.pbSpecialSet.Text = "Set";
-            this.pbSpecialSet.UseVisualStyleBackColor = true;
-            this.pbSpecialSet.Click += new System.EventHandler(this.pbSpecialSet_Click);
-            // 
             // pbSpecialsReset
             // 
-            this.pbSpecialsReset.Location = new System.Drawing.Point(504, 41);
+            this.pbSpecialsReset.Location = new System.Drawing.Point(446, 110);
             this.pbSpecialsReset.Name = "pbSpecialsReset";
             this.pbSpecialsReset.Size = new System.Drawing.Size(47, 23);
             this.pbSpecialsReset.TabIndex = 12;
@@ -225,7 +215,7 @@
             // 
             this.tbFixedSeparator.Enabled = false;
             this.tbFixedSeparator.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFixedSeparator.Location = new System.Drawing.Point(193, 75);
+            this.tbFixedSeparator.Location = new System.Drawing.Point(99, 139);
             this.tbFixedSeparator.MaxLength = 1;
             this.tbFixedSeparator.Name = "tbFixedSeparator";
             this.tbFixedSeparator.Size = new System.Drawing.Size(42, 22);
@@ -235,7 +225,7 @@
             // 
             this.cbRotSeparators.AutoSize = true;
             this.cbRotSeparators.Enabled = false;
-            this.cbRotSeparators.Location = new System.Drawing.Point(253, 79);
+            this.cbRotSeparators.Location = new System.Drawing.Point(159, 143);
             this.cbRotSeparators.Name = "cbRotSeparators";
             this.cbRotSeparators.Size = new System.Drawing.Size(91, 17);
             this.cbRotSeparators.TabIndex = 15;
@@ -247,26 +237,15 @@
             // 
             this.tbSeparators.Enabled = false;
             this.tbSeparators.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSeparators.Location = new System.Drawing.Point(350, 77);
+            this.tbSeparators.Location = new System.Drawing.Point(256, 141);
             this.tbSeparators.Name = "tbSeparators";
             this.tbSeparators.Size = new System.Drawing.Size(105, 22);
             this.tbSeparators.TabIndex = 16;
             // 
-            // pbSeparatorsSet
-            // 
-            this.pbSeparatorsSet.Enabled = false;
-            this.pbSeparatorsSet.Location = new System.Drawing.Point(461, 76);
-            this.pbSeparatorsSet.Name = "pbSeparatorsSet";
-            this.pbSeparatorsSet.Size = new System.Drawing.Size(36, 23);
-            this.pbSeparatorsSet.TabIndex = 17;
-            this.pbSeparatorsSet.Text = "Set";
-            this.pbSeparatorsSet.UseVisualStyleBackColor = true;
-            this.pbSeparatorsSet.Click += new System.EventHandler(this.pbSeparatorsSet_Click);
-            // 
             // pbSeparatorsReset
             // 
             this.pbSeparatorsReset.Enabled = false;
-            this.pbSeparatorsReset.Location = new System.Drawing.Point(503, 76);
+            this.pbSeparatorsReset.Location = new System.Drawing.Point(367, 140);
             this.pbSeparatorsReset.Name = "pbSeparatorsReset";
             this.pbSeparatorsReset.Size = new System.Drawing.Size(47, 23);
             this.pbSeparatorsReset.TabIndex = 18;
@@ -292,6 +271,7 @@
             this.pbSetup.Size = new System.Drawing.Size(32, 32);
             this.pbSetup.TabIndex = 20;
             this.pbSetup.UseVisualStyleBackColor = true;
+            this.pbSetup.Click += new System.EventHandler(this.pbSetup_Click);
             // 
             // dgvPasswords
             // 
@@ -310,15 +290,103 @@
             this.colLength,
             this.colSepText});
             this.dgvPasswords.ContextMenuStrip = this.cmPasswords;
-            this.dgvPasswords.Location = new System.Drawing.Point(3, 134);
+            this.dgvPasswords.Location = new System.Drawing.Point(3, 173);
             this.dgvPasswords.MultiSelect = false;
             this.dgvPasswords.Name = "dgvPasswords";
             this.dgvPasswords.ReadOnly = true;
             this.dgvPasswords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPasswords.Size = new System.Drawing.Size(657, 249);
+            this.dgvPasswords.Size = new System.Drawing.Size(657, 302);
             this.dgvPasswords.TabIndex = 21;
             this.dgvPasswords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPasswords_CellDoubleClick);
             this.dgvPasswords.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPasswords_DataBindingComplete);
+            // 
+            // colPassword
+            // 
+            this.colPassword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPassword.DataPropertyName = "Password";
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPassword.DefaultCellStyle = dataGridViewCellStyle15;
+            this.colPassword.HeaderText = "Password";
+            this.colPassword.Name = "colPassword";
+            this.colPassword.ReadOnly = true;
+            this.colPassword.Width = 78;
+            // 
+            // colStrength
+            // 
+            this.colStrength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colStrength.DataPropertyName = "Strength";
+            this.colStrength.HeaderText = "Strength";
+            this.colStrength.Name = "colStrength";
+            this.colStrength.ReadOnly = true;
+            this.colStrength.Width = 72;
+            // 
+            // colStrengthValue
+            // 
+            this.colStrengthValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colStrengthValue.DataPropertyName = "StrengthValue";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colStrengthValue.DefaultCellStyle = dataGridViewCellStyle16;
+            this.colStrengthValue.HeaderText = "Val.";
+            this.colStrengthValue.Name = "colStrengthValue";
+            this.colStrengthValue.ReadOnly = true;
+            this.colStrengthValue.Width = 50;
+            // 
+            // colCardinality
+            // 
+            this.colCardinality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colCardinality.DataPropertyName = "Cardinality";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colCardinality.DefaultCellStyle = dataGridViewCellStyle17;
+            this.colCardinality.HeaderText = "Cardin.";
+            this.colCardinality.Name = "colCardinality";
+            this.colCardinality.ReadOnly = true;
+            this.colCardinality.Width = 65;
+            // 
+            // colEntropy
+            // 
+            this.colEntropy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colEntropy.DataPropertyName = "Entropy";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "F1";
+            dataGridViewCellStyle18.NullValue = null;
+            this.colEntropy.DefaultCellStyle = dataGridViewCellStyle18;
+            this.colEntropy.HeaderText = "H (bits)";
+            this.colEntropy.Name = "colEntropy";
+            this.colEntropy.ReadOnly = true;
+            this.colEntropy.Width = 65;
+            // 
+            // colRank
+            // 
+            this.colRank.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colRank.DataPropertyName = "Rank";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colRank.DefaultCellStyle = dataGridViewCellStyle19;
+            this.colRank.HeaderText = "Rank";
+            this.colRank.Name = "colRank";
+            this.colRank.ReadOnly = true;
+            this.colRank.Width = 58;
+            // 
+            // colLength
+            // 
+            this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colLength.DataPropertyName = "Length";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colLength.DefaultCellStyle = dataGridViewCellStyle20;
+            this.colLength.HeaderText = "Len.";
+            this.colLength.Name = "colLength";
+            this.colLength.ReadOnly = true;
+            this.colLength.Width = 53;
+            // 
+            // colSepText
+            // 
+            this.colSepText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colSepText.DataPropertyName = "SepText";
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Courier New", 9F);
+            this.colSepText.DefaultCellStyle = dataGridViewCellStyle21;
+            this.colSepText.HeaderText = "Chunks";
+            this.colSepText.Name = "colSepText";
+            this.colSepText.ReadOnly = true;
+            this.colSepText.Width = 68;
             // 
             // cmPasswords
             // 
@@ -343,114 +411,180 @@
             this.tmiStrengthDetails.Text = "Details of Strength Evaluation";
             this.tmiStrengthDetails.Click += new System.EventHandler(this.tmiStrengthDetails_Click);
             // 
-            // colPassword
+            // label4
             // 
-            this.colPassword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPassword.DataPropertyName = "Password";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPassword.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colPassword.HeaderText = "Password";
-            this.colPassword.Name = "colPassword";
-            this.colPassword.ReadOnly = true;
-            this.colPassword.Width = 78;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Alpha chars:";
             // 
-            // colStrength
+            // lblCapMax
             // 
-            this.colStrength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colStrength.DataPropertyName = "Strength";
-            this.colStrength.HeaderText = "Strength";
-            this.colStrength.Name = "colStrength";
-            this.colStrength.ReadOnly = true;
-            this.colStrength.Width = 72;
+            this.lblCapMax.AutoSize = true;
+            this.lblCapMax.Location = new System.Drawing.Point(262, 21);
+            this.lblCapMax.Name = "lblCapMax";
+            this.lblCapMax.Size = new System.Drawing.Size(30, 13);
+            this.lblCapMax.TabIndex = 26;
+            this.lblCapMax.Text = "Max:";
             // 
-            // colStrengthValue
+            // nudCapitalsMax
             // 
-            this.colStrengthValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colStrengthValue.DataPropertyName = "StrengthValue";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colStrengthValue.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colStrengthValue.HeaderText = "Val.";
-            this.colStrengthValue.Name = "colStrengthValue";
-            this.colStrengthValue.ReadOnly = true;
-            this.colStrengthValue.Width = 50;
+            this.nudCapitalsMax.Location = new System.Drawing.Point(298, 19);
+            this.nudCapitalsMax.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCapitalsMax.Name = "nudCapitalsMax";
+            this.nudCapitalsMax.Size = new System.Drawing.Size(46, 20);
+            this.nudCapitalsMax.TabIndex = 25;
+            this.nudCapitalsMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudCapitalsMax.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCapitalsMax.ValueChanged += new System.EventHandler(this.nudCapitalsMax_ValueChanged);
             // 
-            // colCardinality
+            // lblSpecialMax
             // 
-            this.colCardinality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colCardinality.DataPropertyName = "Cardinality";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colCardinality.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colCardinality.HeaderText = "Cardin.";
-            this.colCardinality.Name = "colCardinality";
-            this.colCardinality.ReadOnly = true;
-            this.colCardinality.Width = 65;
+            this.lblSpecialMax.AutoSize = true;
+            this.lblSpecialMax.Location = new System.Drawing.Point(148, 115);
+            this.lblSpecialMax.Name = "lblSpecialMax";
+            this.lblSpecialMax.Size = new System.Drawing.Size(30, 13);
+            this.lblSpecialMax.TabIndex = 30;
+            this.lblSpecialMax.Text = "Max:";
             // 
-            // colEntropy
+            // nudSpecialsMax
             // 
-            this.colEntropy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colEntropy.DataPropertyName = "Entropy";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "F1";
-            dataGridViewCellStyle4.NullValue = null;
-            this.colEntropy.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colEntropy.HeaderText = "H (bits)";
-            this.colEntropy.Name = "colEntropy";
-            this.colEntropy.ReadOnly = true;
-            this.colEntropy.Width = 65;
+            this.nudSpecialsMax.Location = new System.Drawing.Point(180, 113);
+            this.nudSpecialsMax.Maximum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.nudSpecialsMax.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSpecialsMax.Name = "nudSpecialsMax";
+            this.nudSpecialsMax.Size = new System.Drawing.Size(46, 20);
+            this.nudSpecialsMax.TabIndex = 29;
+            this.nudSpecialsMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudSpecialsMax.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSpecialsMax.ValueChanged += new System.EventHandler(this.nudSpecialsMax_ValueChanged);
             // 
-            // colRank
+            // cbBlanks
             // 
-            this.colRank.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colRank.DataPropertyName = "Rank";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colRank.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colRank.HeaderText = "Rank";
-            this.colRank.Name = "colRank";
-            this.colRank.ReadOnly = true;
-            this.colRank.Width = 58;
+            this.cbBlanks.AutoSize = true;
+            this.cbBlanks.Location = new System.Drawing.Point(511, 114);
+            this.cbBlanks.Name = "cbBlanks";
+            this.cbBlanks.Size = new System.Drawing.Size(101, 17);
+            this.cbBlanks.TabIndex = 31;
+            this.cbBlanks.Text = "Blanks (spaces)";
+            this.cbBlanks.UseVisualStyleBackColor = true;
             // 
-            // colLength
+            // pbHelp
             // 
-            this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colLength.DataPropertyName = "Length";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colLength.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colLength.HeaderText = "Len.";
-            this.colLength.Name = "colLength";
-            this.colLength.ReadOnly = true;
-            this.colLength.Width = 53;
+            this.pbHelp.Image = ((System.Drawing.Image)(resources.GetObject("pbHelp.Image")));
+            this.pbHelp.Location = new System.Drawing.Point(547, 12);
+            this.pbHelp.Name = "pbHelp";
+            this.pbHelp.Size = new System.Drawing.Size(32, 32);
+            this.pbHelp.TabIndex = 32;
+            this.pbHelp.UseVisualStyleBackColor = true;
+            this.pbHelp.Visible = false;
+            this.pbHelp.Click += new System.EventHandler(this.pbHelp_Click);
             // 
-            // colSepText
+            // groupBox1
             // 
-            this.colSepText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colSepText.DataPropertyName = "SepText";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Courier New", 9F);
-            this.colSepText.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colSepText.HeaderText = "Chunks";
-            this.colSepText.Name = "colSepText";
-            this.colSepText.ReadOnly = true;
-            this.colSepText.Width = 68;
+            this.groupBox1.Controls.Add(this.rbCapitalsRandom);
+            this.groupBox1.Controls.Add(this.rbCapitalsLast);
+            this.groupBox1.Controls.Add(this.rbCapitalsFirst);
+            this.groupBox1.Controls.Add(this.rbCapitalsNone);
+            this.groupBox1.Controls.Add(this.nudCapitalsMax);
+            this.groupBox1.Controls.Add(this.lblCapMax);
+            this.groupBox1.Location = new System.Drawing.Point(84, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(356, 66);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Capitals";
+            // 
+            // rbCapitalsNone
+            // 
+            this.rbCapitalsNone.AutoSize = true;
+            this.rbCapitalsNone.Location = new System.Drawing.Point(6, 19);
+            this.rbCapitalsNone.Name = "rbCapitalsNone";
+            this.rbCapitalsNone.Size = new System.Drawing.Size(51, 17);
+            this.rbCapitalsNone.TabIndex = 0;
+            this.rbCapitalsNone.TabStop = true;
+            this.rbCapitalsNone.Text = "None";
+            this.rbCapitalsNone.UseVisualStyleBackColor = true;
+            // 
+            // rbCapitalsFirst
+            // 
+            this.rbCapitalsFirst.AutoSize = true;
+            this.rbCapitalsFirst.Location = new System.Drawing.Point(73, 19);
+            this.rbCapitalsFirst.Name = "rbCapitalsFirst";
+            this.rbCapitalsFirst.Size = new System.Drawing.Size(93, 17);
+            this.rbCapitalsFirst.TabIndex = 1;
+            this.rbCapitalsFirst.TabStop = true;
+            this.rbCapitalsFirst.Text = "First in chunks";
+            this.rbCapitalsFirst.UseVisualStyleBackColor = true;
+            // 
+            // rbCapitalsLast
+            // 
+            this.rbCapitalsLast.AutoSize = true;
+            this.rbCapitalsLast.Location = new System.Drawing.Point(73, 43);
+            this.rbCapitalsLast.Name = "rbCapitalsLast";
+            this.rbCapitalsLast.Size = new System.Drawing.Size(94, 17);
+            this.rbCapitalsLast.TabIndex = 27;
+            this.rbCapitalsLast.TabStop = true;
+            this.rbCapitalsLast.Text = "Last in chunks";
+            this.rbCapitalsLast.UseVisualStyleBackColor = true;
+            // 
+            // rbCapitalsRandom
+            // 
+            this.rbCapitalsRandom.AutoSize = true;
+            this.rbCapitalsRandom.Checked = true;
+            this.rbCapitalsRandom.Location = new System.Drawing.Point(181, 19);
+            this.rbCapitalsRandom.Name = "rbCapitalsRandom";
+            this.rbCapitalsRandom.Size = new System.Drawing.Size(65, 17);
+            this.rbCapitalsRandom.TabIndex = 28;
+            this.rbCapitalsRandom.TabStop = true;
+            this.rbCapitalsRandom.Text = "Random";
+            this.rbCapitalsRandom.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 386);
+            this.ClientSize = new System.Drawing.Size(665, 476);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pbHelp);
+            this.Controls.Add(this.cbBlanks);
+            this.Controls.Add(this.lblSpecialMax);
+            this.Controls.Add(this.nudSpecialsMax);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvPasswords);
             this.Controls.Add(this.pbSetup);
             this.Controls.Add(this.pbStrengthMeter);
             this.Controls.Add(this.pbSeparatorsReset);
-            this.Controls.Add(this.pbSeparatorsSet);
             this.Controls.Add(this.tbSeparators);
             this.Controls.Add(this.cbRotSeparators);
             this.Controls.Add(this.tbFixedSeparator);
             this.Controls.Add(this.pbSpecialsReset);
-            this.Controls.Add(this.pbSpecialSet);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbSpecials);
             this.Controls.Add(this.cbSeparators);
             this.Controls.Add(this.cbSpecials);
-            this.Controls.Add(this.cbCapitals);
             this.Controls.Add(this.nudPassToGen);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -466,6 +600,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPassToGen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasswords)).EndInit();
             this.cmPasswords.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudCapitalsMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSpecialsMax)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,17 +615,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudPassToGen;
-        private System.Windows.Forms.CheckBox cbCapitals;
         private System.Windows.Forms.CheckBox cbSpecials;
         private System.Windows.Forms.CheckBox cbSeparators;
         private System.Windows.Forms.TextBox tbSpecials;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button pbSpecialSet;
         private System.Windows.Forms.Button pbSpecialsReset;
         private System.Windows.Forms.TextBox tbFixedSeparator;
         private System.Windows.Forms.CheckBox cbRotSeparators;
         private System.Windows.Forms.TextBox tbSeparators;
-        private System.Windows.Forms.Button pbSeparatorsSet;
         private System.Windows.Forms.Button pbSeparatorsReset;
         private System.Windows.Forms.Button pbStrengthMeter;
         private System.Windows.Forms.Button pbSetup;
@@ -503,6 +638,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRank;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSepText;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCapMax;
+        private System.Windows.Forms.NumericUpDown nudCapitalsMax;
+        private System.Windows.Forms.Label lblSpecialMax;
+        private System.Windows.Forms.NumericUpDown nudSpecialsMax;
+        private System.Windows.Forms.CheckBox cbBlanks;
+        private System.Windows.Forms.Button pbHelp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbCapitalsFirst;
+        private System.Windows.Forms.RadioButton rbCapitalsNone;
+        private System.Windows.Forms.RadioButton rbCapitalsRandom;
+        private System.Windows.Forms.RadioButton rbCapitalsLast;
     }
 }
 

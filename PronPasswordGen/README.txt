@@ -1,11 +1,23 @@
 PronPasswordGen, by jamoram
-Version: 1.2.0 (2019/11/03)
+Version: 1.3.0 (2019/11/06)
 
 A simple and flexible generator of pronounceable strong passwords
 
 
 VERSION HISTORY
 ---------------
+* v1.3.0 (2019/11/06)
+	Table of Generated password: 
+		contextual menu:
+			- Copy password to clipboard
+			- Display details of strength evaluation (also by double-clicking)
+		Password strength categories colourized
+	PasswordChunkGeneratorBase.SpecialsDefault: added new symbols
+	PasswordEntropy.Compute(): searches for "alien" chars and adds them to cardinality
+	PasswordGeneratorOptionsEx
+	Setup form and configuration saved to and read from file
+	Many more options for configuring the generation of the passwords
+	
 * v1.2.0 (2019/11/03)
 	Added class PasswordEntropy 
 	New form: password strength meter

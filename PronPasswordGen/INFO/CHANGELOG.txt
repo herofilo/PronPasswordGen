@@ -10,6 +10,8 @@ CHANGELOG
 	PasswordChunkGeneratorBase.SpecialsDefault: added new symbols
 	PasswordEntropy.Compute(): searches for "alien" chars and adds them to cardinality
 	PasswordGeneratorOptionsEx
+	Setup form and configuration saved to and read from file
+	Many more options for configuring the generation of the passwords
 
 * v1.2.0 (2019/11/03)
 	Added class PasswordEntropy 
