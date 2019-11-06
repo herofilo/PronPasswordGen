@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbGenerate = new System.Windows.Forms.Button();
             this.nudPassLen = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,10 +73,10 @@
             this.cbBlanks = new System.Windows.Forms.CheckBox();
             this.pbHelp = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbCapitalsNone = new System.Windows.Forms.RadioButton();
-            this.rbCapitalsFirst = new System.Windows.Forms.RadioButton();
-            this.rbCapitalsLast = new System.Windows.Forms.RadioButton();
             this.rbCapitalsRandom = new System.Windows.Forms.RadioButton();
+            this.rbCapitalsLast = new System.Windows.Forms.RadioButton();
+            this.rbCapitalsFirst = new System.Windows.Forms.RadioButton();
+            this.rbCapitalsNone = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassLen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPassToGen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasswords)).BeginInit();
@@ -304,8 +304,8 @@
             // 
             this.colPassword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colPassword.DataPropertyName = "Password";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPassword.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPassword.DefaultCellStyle = dataGridViewCellStyle1;
             this.colPassword.HeaderText = "Password";
             this.colPassword.Name = "colPassword";
             this.colPassword.ReadOnly = true;
@@ -324,8 +324,8 @@
             // 
             this.colStrengthValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colStrengthValue.DataPropertyName = "StrengthValue";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colStrengthValue.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colStrengthValue.DefaultCellStyle = dataGridViewCellStyle2;
             this.colStrengthValue.HeaderText = "Val.";
             this.colStrengthValue.Name = "colStrengthValue";
             this.colStrengthValue.ReadOnly = true;
@@ -335,8 +335,8 @@
             // 
             this.colCardinality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colCardinality.DataPropertyName = "Cardinality";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colCardinality.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colCardinality.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCardinality.HeaderText = "Cardin.";
             this.colCardinality.Name = "colCardinality";
             this.colCardinality.ReadOnly = true;
@@ -346,10 +346,10 @@
             // 
             this.colEntropy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colEntropy.DataPropertyName = "Entropy";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "F1";
-            dataGridViewCellStyle18.NullValue = null;
-            this.colEntropy.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "F1";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colEntropy.DefaultCellStyle = dataGridViewCellStyle4;
             this.colEntropy.HeaderText = "H (bits)";
             this.colEntropy.Name = "colEntropy";
             this.colEntropy.ReadOnly = true;
@@ -359,8 +359,8 @@
             // 
             this.colRank.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colRank.DataPropertyName = "Rank";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colRank.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colRank.DefaultCellStyle = dataGridViewCellStyle5;
             this.colRank.HeaderText = "Rank";
             this.colRank.Name = "colRank";
             this.colRank.ReadOnly = true;
@@ -370,8 +370,8 @@
             // 
             this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colLength.DataPropertyName = "Length";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colLength.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colLength.DefaultCellStyle = dataGridViewCellStyle6;
             this.colLength.HeaderText = "Len.";
             this.colLength.Name = "colLength";
             this.colLength.ReadOnly = true;
@@ -381,8 +381,8 @@
             // 
             this.colSepText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colSepText.DataPropertyName = "SepText";
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Courier New", 9F);
-            this.colSepText.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Courier New", 9F);
+            this.colSepText.DefaultCellStyle = dataGridViewCellStyle7;
             this.colSepText.HeaderText = "Chunks";
             this.colSepText.Name = "colSepText";
             this.colSepText.ReadOnly = true;
@@ -499,7 +499,6 @@
             this.pbHelp.Size = new System.Drawing.Size(32, 32);
             this.pbHelp.TabIndex = 32;
             this.pbHelp.UseVisualStyleBackColor = true;
-            this.pbHelp.Visible = false;
             this.pbHelp.Click += new System.EventHandler(this.pbHelp_Click);
             // 
             // groupBox1
@@ -517,27 +516,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Capitals";
             // 
-            // rbCapitalsNone
+            // rbCapitalsRandom
             // 
-            this.rbCapitalsNone.AutoSize = true;
-            this.rbCapitalsNone.Location = new System.Drawing.Point(6, 19);
-            this.rbCapitalsNone.Name = "rbCapitalsNone";
-            this.rbCapitalsNone.Size = new System.Drawing.Size(51, 17);
-            this.rbCapitalsNone.TabIndex = 0;
-            this.rbCapitalsNone.TabStop = true;
-            this.rbCapitalsNone.Text = "None";
-            this.rbCapitalsNone.UseVisualStyleBackColor = true;
-            // 
-            // rbCapitalsFirst
-            // 
-            this.rbCapitalsFirst.AutoSize = true;
-            this.rbCapitalsFirst.Location = new System.Drawing.Point(73, 19);
-            this.rbCapitalsFirst.Name = "rbCapitalsFirst";
-            this.rbCapitalsFirst.Size = new System.Drawing.Size(93, 17);
-            this.rbCapitalsFirst.TabIndex = 1;
-            this.rbCapitalsFirst.TabStop = true;
-            this.rbCapitalsFirst.Text = "First in chunks";
-            this.rbCapitalsFirst.UseVisualStyleBackColor = true;
+            this.rbCapitalsRandom.AutoSize = true;
+            this.rbCapitalsRandom.Checked = true;
+            this.rbCapitalsRandom.Location = new System.Drawing.Point(181, 19);
+            this.rbCapitalsRandom.Name = "rbCapitalsRandom";
+            this.rbCapitalsRandom.Size = new System.Drawing.Size(65, 17);
+            this.rbCapitalsRandom.TabIndex = 28;
+            this.rbCapitalsRandom.TabStop = true;
+            this.rbCapitalsRandom.Text = "Random";
+            this.rbCapitalsRandom.UseVisualStyleBackColor = true;
             // 
             // rbCapitalsLast
             // 
@@ -550,17 +539,27 @@
             this.rbCapitalsLast.Text = "Last in chunks";
             this.rbCapitalsLast.UseVisualStyleBackColor = true;
             // 
-            // rbCapitalsRandom
+            // rbCapitalsFirst
             // 
-            this.rbCapitalsRandom.AutoSize = true;
-            this.rbCapitalsRandom.Checked = true;
-            this.rbCapitalsRandom.Location = new System.Drawing.Point(181, 19);
-            this.rbCapitalsRandom.Name = "rbCapitalsRandom";
-            this.rbCapitalsRandom.Size = new System.Drawing.Size(65, 17);
-            this.rbCapitalsRandom.TabIndex = 28;
-            this.rbCapitalsRandom.TabStop = true;
-            this.rbCapitalsRandom.Text = "Random";
-            this.rbCapitalsRandom.UseVisualStyleBackColor = true;
+            this.rbCapitalsFirst.AutoSize = true;
+            this.rbCapitalsFirst.Location = new System.Drawing.Point(73, 19);
+            this.rbCapitalsFirst.Name = "rbCapitalsFirst";
+            this.rbCapitalsFirst.Size = new System.Drawing.Size(93, 17);
+            this.rbCapitalsFirst.TabIndex = 1;
+            this.rbCapitalsFirst.TabStop = true;
+            this.rbCapitalsFirst.Text = "First in chunks";
+            this.rbCapitalsFirst.UseVisualStyleBackColor = true;
+            // 
+            // rbCapitalsNone
+            // 
+            this.rbCapitalsNone.AutoSize = true;
+            this.rbCapitalsNone.Location = new System.Drawing.Point(6, 19);
+            this.rbCapitalsNone.Name = "rbCapitalsNone";
+            this.rbCapitalsNone.Size = new System.Drawing.Size(51, 17);
+            this.rbCapitalsNone.TabIndex = 0;
+            this.rbCapitalsNone.TabStop = true;
+            this.rbCapitalsNone.Text = "None";
+            this.rbCapitalsNone.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

@@ -389,9 +389,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(137, 64);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 13);
+            this.label7.Size = new System.Drawing.Size(123, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Inverted with Diphtongue:";
+            this.label7.Text = "Inverted with Diphthong:";
             // 
             // label8
             // 
@@ -407,9 +407,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(137, 32);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 13);
+            this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Direct with Diphtongue:";
+            this.label6.Text = "Direct with Diphthong:";
             // 
             // label5
             // 

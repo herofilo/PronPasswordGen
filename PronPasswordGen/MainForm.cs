@@ -352,7 +352,8 @@ namespace PronPasswordGen
 
         private void pbHelp_Click(object sender, EventArgs e)
         {
-            // TODO : help
+            HelpForm form = new HelpForm();
+            form.Show(this);
         }
 
 

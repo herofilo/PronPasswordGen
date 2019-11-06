@@ -1,11 +1,15 @@
 PronPasswordGen, by jamoram
-Version: 1.3.0 (2019/11/06)
+Version: 1.3.1 (2019/11/06)
 
 A simple and flexible generator of pronounceable strong passwords
 
 
 VERSION HISTORY
 ---------------
+* v1.3.1 (2019/11/06)
+	Help form
+	Some minor UI corrections
+	
 * v1.3.0 (2019/11/06)
 	Table of Generated password: 
 		contextual menu:

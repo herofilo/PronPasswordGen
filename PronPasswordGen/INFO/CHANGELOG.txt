@@ -1,7 +1,11 @@
 
 CHANGELOG
 ----------
-* v1.3.0 (2019/11/03)
+* v1.3.1 (2019/11/06)
+	Help form
+	Some minor UI corrections
+
+* v1.3.0 (2019/11/06)
 	Table of Generated password: 
 		contextual menu:
 			- Copy password to clipboard
